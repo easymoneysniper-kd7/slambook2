@@ -29,3 +29,5 @@ BaiduYun backup link in case your github is very slow (common in China): [here](
 希望您喜欢本书。
 
 本代码的百度云备份（如果您的github速度非常慢）[下载链接](https://pan.baidu.com/s/1XQwpnDb3BOvxXZhL-03p3w).
+
+已经加到我自己仓库了
