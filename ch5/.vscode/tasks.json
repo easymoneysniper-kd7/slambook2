@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++ 生成活动文件",
+            "command": "/usr/bin/cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--config",
+                "Debug",
+                "--target",
+                "all",
+                "-j",
+                "$(nproc)"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "使用 CMake 构建项目"
+        },
+        {
+            "type": "shell",
+            "label": "CMake: 配置项目",
+            "command": "/usr/bin/cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-S",
+                "${workspaceFolder}",
+                "-B",
+                "${workspaceFolder}/build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "配置 CMake 项目（Debug 模式）"
+        }
+    ]
+}

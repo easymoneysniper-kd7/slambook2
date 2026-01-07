@@ -1,8 +1,23 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.1)
 
-set(CMAKE_BUILD_TYPE "Release")
-# 添加c++ 11标准支持
-set(CMAKE_CXX_FLAGS "-std=c++11 -O2")
+project(slambook2)
+
+# 默认构建类型（允许通过 -DCMAKE_BUILD_TYPE=Debug/Release 覆盖）
+if(NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build type" FORCE)
+endif()
+
+# 生成 compile_commands.json，供 VS Code IntelliSense/clangd 使用
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# 使用现代 CMake 指定 C++ 标准为 C++14（Pangolin/sigslot 需要 C++14）
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# 优化选项：仅在 Release 时开启（避免 Debug 也被 -O2 影响断点/变量查看）
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+	add_compile_options(-O2)
+endif()
 
 # Eigen
 include_directories("/usr/include/eigen3")
