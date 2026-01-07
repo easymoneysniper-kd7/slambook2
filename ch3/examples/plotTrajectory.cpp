@@ -1,6 +1,8 @@
 #include <pangolin/pangolin.h>
 #include <Eigen/Core>
+#include <Eigen/Geometry>
 #include <unistd.h>
+#include <fstream>
 
 using namespace Eigen;
 using namespace std;
